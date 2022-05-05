@@ -1,22 +1,24 @@
 package com.salcedoFawcett.services.parameterData.web.controller;
 
-import com.salcedoFawcett.services.parameterData.domain.model.Unit;
-import com.salcedoFawcett.services.parameterData.domain.service.UnitService;
+import com.salcedoFawcett.services.parameterData.domain.model.PaymentMeans;
+import com.salcedoFawcett.services.parameterData.domain.service.PaymentMeansService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/parameter/unit")
-public class UnitController {
+@RequestMapping("/parameter/payment_means")
+public class PaymentMeansController {
     @Autowired
-    private UnitService service;
+    private PaymentMeansService service;
     @GetMapping("/")
-    public ResponseEntity<List<Unit>> getAll(){
+    public ResponseEntity<List<PaymentMeans>> getAll(){
         try {
             return new ResponseEntity<>(service.getList(), HttpStatus.OK);
         } catch (IOException e) {

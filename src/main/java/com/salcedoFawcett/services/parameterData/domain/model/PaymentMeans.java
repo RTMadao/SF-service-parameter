@@ -1,10 +1,10 @@
 package com.salcedoFawcett.services.parameterData.domain.model;
 
-public class Unit {
+public class PaymentMeans {
     private String id;
     private String name;
-    public Unit(){}
-    public Unit(String id, String name) {
+    public PaymentMeans(){}
+    public PaymentMeans(String id, String name) {
         this.id = id;
         this.name = name;
     }

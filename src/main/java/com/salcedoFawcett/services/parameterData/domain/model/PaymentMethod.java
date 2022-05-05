@@ -1,17 +1,17 @@
 package com.salcedoFawcett.services.parameterData.domain.model;
 
-public class Unit {
-    private String id;
+public class PaymentMethod {
+    private int id;
     private String name;
-    public Unit(){}
-    public Unit(String id, String name) {
+    public PaymentMethod(){}
+    public PaymentMethod(int id, String name) {
         this.id = id;
         this.name = name;
     }
-    public String getId() {
+    public int getId() {
         return id;
     }
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
     public String getName() {
