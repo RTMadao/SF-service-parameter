@@ -1,24 +1,40 @@
 package com.salcedoFawcett.services.parameterData;
 
-import com.salcedoFawcett.services.parameterData.persistence.entity.TaxLevelCode;
-import com.salcedoFawcett.services.parameterData.persistence.repository.TaxLevelCodeRepository;
+import com.salcedoFawcett.services.parameterData.domain.model.Unit;
+import com.salcedoFawcett.services.parameterData.domain.model.XMLReader.DataListXML;
+import com.salcedoFawcett.services.parameterData.domain.service.UnitService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.xml.sax.SAXException;
+
+import javax.xml.bind.JAXBException;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.stream.XMLStreamException;
+import java.io.IOException;
+import java.util.List;
+
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.samePropertyValuesAs;
 
 @SpringBootTest
 class ParameterDataApplicationTests {
 
 	@Autowired
-	private TaxLevelCodeRepository taxLevelCodeRepository;
+	private UnitService unitService;
 
 	@Test
-	void tax_level_codeGet() {
-		TaxLevelCode itemGet = taxLevelCodeRepository.getAll().get(1);
-
-		assertThat("Parametro no guardado",itemGet, samePropertyValuesAs(new TaxLevelCode("O‐13","Gran contribuyente")));
+	void readJSON() {
+		try {
+			List<Unit> units = unitService.getList();
+			units.get(1);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 	}
+
+	//@Test
+	//void generateJSON() {
+	//	unitService.generateJsonFile();
+	//}
 
 }
