@@ -9,10 +9,8 @@ import java.util.List;
 
 @Service
 public class OperationTypeService {
-
     @Autowired
     private OperationTypeRepository repository;
-
     public List<OperationType> getAll() {
         return repository.getAll();
     }

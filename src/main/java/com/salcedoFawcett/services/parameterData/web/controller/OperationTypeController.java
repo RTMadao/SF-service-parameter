@@ -13,13 +13,13 @@ import java.util.List;
 @RequestMapping("/parameter/operation_type")
 public class OperationTypeController {
     @Autowired
-    private OperationTypeService operationTypeService;
+    private OperationTypeService service;
     @GetMapping("/")
-    public ResponseEntity<List<OperationType>> getAllOperationTypes(){
-        return new ResponseEntity<>(operationTypeService.getAll(), HttpStatus.OK);
+    public ResponseEntity<List<OperationType>> getAll(){
+        return new ResponseEntity<>(service.getAll(), HttpStatus.OK);
     }
     @PostMapping("/save")
     public  ResponseEntity<OperationType> save(@RequestBody OperationType operationType){
-        return new ResponseEntity<>(operationTypeService.save(operationType),HttpStatus.CREATED);
+        return new ResponseEntity<>(service.save(operationType),HttpStatus.CREATED);
     }
 }
