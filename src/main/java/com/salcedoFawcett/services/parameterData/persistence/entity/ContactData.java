@@ -5,7 +5,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "party_contact_data")
 public class ContactData {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -14,9 +13,7 @@ public class ContactData {
     private String telefax;
     private String electronicMail;
     private String note;
-
     public ContactData(){}
-
     public ContactData(int id, String name, String telephone, String telefax, String electronicMail, String note) {
         this.id = id;
         this.name = name;
@@ -25,7 +22,6 @@ public class ContactData {
         this.electronicMail = electronicMail;
         this.note = note;
     }
-
     public int getId() {
         return id;
     }

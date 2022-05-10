@@ -1,6 +1,6 @@
 FROM openjdk:11-jre-slim
 
-COPY build/libs/parameterData-0.0.1-SNAPSHOT.jar home/spring/salcedo_fawcett/parameter_service.jar
+COPY build/libs/parameterData-0.5.0-SNAPSHOT.jar home/spring/salcedo_fawcett/parameter_service.jar
 EXPOSE 3005
 
 # Add docker-compose-wait tool -------------------
