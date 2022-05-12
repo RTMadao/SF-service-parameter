@@ -17,17 +17,8 @@ import java.util.List;
 public class DebitNoteConceptController {
     @Autowired
     private DebitNoteConceptService service;
-    @GetMapping("/")
+    @GetMapping("/all")
     public ResponseEntity<List<DebitNoteConcept>> getAll(){
-        try {
-            return new ResponseEntity<>(service.getList(), HttpStatus.OK);
-        } catch (IOException e) {
-            try {
-                service.generateJsonFile();
-                return new ResponseEntity<>(service.getList(), HttpStatus.OK);
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-        }
+        return new ResponseEntity<>(service.getList(), HttpStatus.OK);
     }
 }

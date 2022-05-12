@@ -8,8 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -17,17 +15,8 @@ import java.util.List;
 public class PaymentMethodController {
     @Autowired
     private PaymentMethodService service;
-    @GetMapping("/")
+    @GetMapping("/all")
     public ResponseEntity<List<PaymentMethod>> getAll(){
-        try {
-            return new ResponseEntity<>(service.getList(), HttpStatus.OK);
-        } catch (IOException e) {
-            try {
-                service.generateJsonFile();
-                return new ResponseEntity<>(service.getList(), HttpStatus.OK);
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-        }
+        return new ResponseEntity<>(service.getList(), HttpStatus.OK);
     }
 }
