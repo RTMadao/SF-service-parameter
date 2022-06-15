@@ -9,24 +9,19 @@ public class ElectronicDocumentParameter {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int invoiceAuthorization;
+    private String invoiceAuthorization;
     private Date authorizationPeriodStartDate;
     private Date authorizationPeriodEndDate;
     private String authorizedInvoicesPrefix;
     private int authorizedInvoicesFrom;
     private int authorizedInvoicesTo;
+    private int authorizedInvoicesLastUsed;
+    private int creditNoteIdLastUsed;
+    private int debitNoteIdLastUsed;
+    private int applicationIdResponseLastUsed;
+    private int attachedDocumentIdLastUsed;
 
     public ElectronicDocumentParameter() {}
-
-    public ElectronicDocumentParameter(int id, int invoiceAuthorization, Date authorizationPeriodStartDate, Date authorizationPeriodEndDate, String authorizedInvoicesPrefix, int authorizedInvoicesFrom, int authorizedInvoicesTo) {
-        this.id = id;
-        this.invoiceAuthorization = invoiceAuthorization;
-        this.authorizationPeriodStartDate = authorizationPeriodStartDate;
-        this.authorizationPeriodEndDate = authorizationPeriodEndDate;
-        this.authorizedInvoicesPrefix = authorizedInvoicesPrefix;
-        this.authorizedInvoicesFrom = authorizedInvoicesFrom;
-        this.authorizedInvoicesTo = authorizedInvoicesTo;
-    }
 
     public int getId() {
         return id;
@@ -36,11 +31,11 @@ public class ElectronicDocumentParameter {
         this.id = id;
     }
 
-    public int getInvoiceAuthorization() {
+    public String getInvoiceAuthorization() {
         return invoiceAuthorization;
     }
 
-    public void setInvoiceAuthorization(int invoiceAuthorization) {
+    public void setInvoiceAuthorization(String invoiceAuthorization) {
         this.invoiceAuthorization = invoiceAuthorization;
     }
 
@@ -82,5 +77,45 @@ public class ElectronicDocumentParameter {
 
     public void setAuthorizedInvoicesTo(int authorizedInvoicesTo) {
         this.authorizedInvoicesTo = authorizedInvoicesTo;
+    }
+
+    public int getAuthorizedInvoicesLastUsed() {
+        return authorizedInvoicesLastUsed;
+    }
+
+    public void setAuthorizedInvoicesLastUsed(int authorizedInvoicesLastUsed) {
+        this.authorizedInvoicesLastUsed = authorizedInvoicesLastUsed;
+    }
+
+    public int getCreditNoteIdLastUsed() {
+        return creditNoteIdLastUsed;
+    }
+
+    public void setCreditNoteIdLastUsed(int creditNoteIdLastUsed) {
+        this.creditNoteIdLastUsed = creditNoteIdLastUsed;
+    }
+
+    public int getDebitNoteIdLastUsed() {
+        return debitNoteIdLastUsed;
+    }
+
+    public void setDebitNoteIdLastUsed(int debitNoteIdLastUsed) {
+        this.debitNoteIdLastUsed = debitNoteIdLastUsed;
+    }
+
+    public int getApplicationIdResponseLastUsed() {
+        return applicationIdResponseLastUsed;
+    }
+
+    public void setApplicationIdResponseLastUsed(int applicationIdResponseLastUsed) {
+        this.applicationIdResponseLastUsed = applicationIdResponseLastUsed;
+    }
+
+    public int getAttachedDocumentIdLastUsed() {
+        return attachedDocumentIdLastUsed;
+    }
+
+    public void setAttachedDocumentIdLastUsed(int attachedDocumentIdLastUsed) {
+        this.attachedDocumentIdLastUsed = attachedDocumentIdLastUsed;
     }
 }

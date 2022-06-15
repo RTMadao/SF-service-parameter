@@ -27,6 +27,13 @@ public class IdentificationDocumentTypeController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    @GetMapping("/get_name/{id}")
+    public  ResponseEntity<String> getDocumentTypeNameById(@PathVariable("id") int id) {
+        return identificationDocumentTypeService.getById(id)
+                .map( item -> new ResponseEntity<>(item.getName(), HttpStatus.OK))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
     @PostMapping("/save")
     public  ResponseEntity<IdentificationDocumentType> save(@RequestBody IdentificationDocumentType identificationDocumentType){
         return new ResponseEntity<>(identificationDocumentTypeService.save(identificationDocumentType),HttpStatus.CREATED);

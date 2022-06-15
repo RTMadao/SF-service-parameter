@@ -12,8 +12,8 @@ public class ElectronicDocumentParameterRepository {
     @Autowired
     private ElectronicDocumentParameterCrudRepository crudRepository;
 
-    public Optional<ElectronicDocumentParameter> getById(int id){
-        return crudRepository.findById(id);
+    public Optional<ElectronicDocumentParameter> get(){
+        return crudRepository.findFirstByOrderById();
     }
     public ElectronicDocumentParameter save(ElectronicDocumentParameter parameter){
         return crudRepository.save(parameter);
